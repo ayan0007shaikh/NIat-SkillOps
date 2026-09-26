@@ -27,10 +27,10 @@ export default async function DashboardLayout({
     : user.email?.substring(0, 2).toUpperCase() || 'ST'
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50/50">
+    <div className="flex flex-col h-screen overflow-hidden bg-gray-50/50">
       
       {/* Top Header - Full Width */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+      <header className="bg-white border-b border-gray-100 shrink-0 z-50 shadow-sm">
         <div className="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           
           {/* Logo Area */}
@@ -92,14 +92,14 @@ export default async function DashboardLayout({
         </div>
       </header>
 
-      <div className="flex flex-1 h-[calc(100vh-4rem)] overflow-hidden">
+      <div className="flex flex-1 overflow-hidden relative">
         {/* Sidebar Navigation */}
         <aside className="w-24 shrink-0 bg-white border-r border-gray-100 hidden md:flex flex-col h-full z-40 items-center py-6">
           <SidebarNav />
         </aside>
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto w-full bg-gray-50/30 h-full">
+        <main className="flex-1 overflow-y-auto w-full bg-gray-50/30">
           <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
             {children}
           </div>
