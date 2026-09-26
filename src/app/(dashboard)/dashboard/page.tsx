@@ -30,7 +30,7 @@ export default async function DashboardPage() {
         <div>
           <DynamicGreeting name={firstName} />
         </div>
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
           <p className="text-xs font-semibold text-gray-400 tracking-wider uppercase mb-1">Target Role</p>
           <h2 className="text-xl font-bold text-gray-900">{targetRole}</h2>
         </div>
@@ -54,7 +54,7 @@ export default async function DashboardPage() {
         <p className="text-gray-500">Here's how your career path is progressing.</p>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
         <p className="text-xs font-semibold text-gray-400 tracking-wider uppercase mb-1">Target Role</p>
         <h2 className="text-xl font-bold text-gray-900 mb-6">{targetRole}</h2>
 
@@ -85,7 +85,7 @@ export default async function DashboardPage() {
         </div>
       </div>
 
-      <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-6">
+      <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
         <div className="flex items-center gap-2 mb-3">
           <Sparkles className="w-4 h-4 text-blue-600" />
           <h3 className="text-sm font-semibold text-blue-900">AI Career Insight</h3>

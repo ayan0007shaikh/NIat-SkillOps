@@ -179,7 +179,7 @@ export default function AssessmentsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {weakSkills.map((skill, index) => (
-          <div key={index} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col">
+          <div key={index} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             <div className="flex items-start justify-between mb-4">
               <div>
                 <span className="text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded-md mb-2 inline-block">Weak Skill</span>

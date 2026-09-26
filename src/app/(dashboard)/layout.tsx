@@ -100,7 +100,7 @@ export default async function DashboardLayout({
 
         {/* Main Content Area */}
         <main className="flex-1 overflow-y-auto w-full bg-gray-50/30">
-          <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+          <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 pb-24 md:pb-10">
             {children}
           </div>
         </main>

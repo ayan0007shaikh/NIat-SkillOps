@@ -79,7 +79,7 @@ function RoadmapWeek({ item }: { item: any }) {
         </div>
       </div>
 
-      <div className={`flex-1 bg-white p-6 rounded-2xl border ${isInProgress ? 'border-purple-100 shadow-md ring-1 ring-purple-50' : 'border-gray-100 shadow-sm'} transition-all hover:shadow-md`}>
+      <div className={`flex-1 bg-white p-6 rounded-2xl border ${isInProgress ? 'border-purple-100 shadow-md ring-1 ring-purple-50' : 'border-gray-100 shadow-sm'} transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
             <span className={`text-[10px] font-bold uppercase tracking-wider ${
