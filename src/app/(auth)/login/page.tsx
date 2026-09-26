@@ -66,7 +66,12 @@ export default function LoginPage() {
                   }
                 }
             })
-            if (signUpError) throw signUpError
+            if (signUpError) {
+                if (signUpError.message.includes('already registered')) {
+                    throw new Error('Incorrect password. This email is already registered, but the password you entered is wrong.')
+                }
+                throw signUpError
+            }
         } else {
             throw error
         }
