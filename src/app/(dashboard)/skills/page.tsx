@@ -51,7 +51,7 @@ export default async function SkillsPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* Strong Skills */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full">
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
           <div className="flex items-center justify-between mb-6">
              <h3 className="font-bold text-gray-900">Strong</h3>
              <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">{strong.length}</span>
@@ -64,7 +64,7 @@ export default async function SkillsPage() {
         </div>
 
         {/* Developing Skills */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full">
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
           <div className="flex items-center justify-between mb-6">
              <h3 className="font-bold text-gray-900">Developing</h3>
              <span className="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded-full">{developing.length}</span>
@@ -77,7 +77,7 @@ export default async function SkillsPage() {
         </div>
 
         {/* Missing Skills */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full border-t-4 border-t-red-500">
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-t-4 border-t-red-500">
           <div className="flex items-center justify-between mb-6">
              <h3 className="font-bold text-gray-900">Critical Gaps</h3>
              <span className="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded-full">{missing.length}</span>

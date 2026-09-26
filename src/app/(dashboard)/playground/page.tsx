@@ -83,10 +83,10 @@ export default function PlaygroundPage() {
       </div>
 
       {/* Main Workspace */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
         
         {/* Editor Pane */}
-        <div className="w-1/2 flex flex-col border-r border-gray-200 bg-[#1e1e2e]">
+        <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col border-b md:border-b-0 md:border-r border-gray-200 bg-[#1e1e2e]">
           {/* Tabs */}
           <div className="flex h-10 bg-[#181825]">
             {mode === 'web' ? (
@@ -152,7 +152,7 @@ export default function PlaygroundPage() {
         </div>
 
         {/* Output Pane */}
-        <div className="w-1/2 bg-white flex flex-col">
+        <div className="w-full md:w-1/2 h-1/2 md:h-full bg-white flex flex-col">
           <div className="h-10 bg-gray-50 border-b border-gray-200 flex items-center px-4">
              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Output / Console</span>
           </div>

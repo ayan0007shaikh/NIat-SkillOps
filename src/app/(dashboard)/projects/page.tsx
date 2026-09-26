@@ -61,7 +61,7 @@ export default async function ProjectsPage() {
 
 function ProjectCard({ title, description, icon, tags, difficulty, timeEstimate, isCompleted }: any) {
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col h-full">
+    <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
       <div className="flex justify-between items-start mb-4">
         <div className="bg-gray-50 p-3 rounded-xl">
           {icon}
