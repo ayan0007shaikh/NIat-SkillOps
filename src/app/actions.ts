@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { generateRoadmap } from '@/lib/ai/gemini'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
+import { getStudentSkills, getWeakestSkills } from '@/lib/skillsData'
 
 export async function createAIRoadmap() {
   const supabase = await createClient()
@@ -14,9 +15,9 @@ export async function createAIRoadmap() {
   // Get Profile
   const { data: profile } = await supabase.from('profiles').select('*').eq('id', user.id).single()
   
-  // Get missing skills
-  const { data: skills } = await supabase.from('career_skills').select('*').eq('user_id', user.id).in('category', ['missing', 'developing'])
-  const skillNames = skills?.map(s => s.skill_name) || ['React', 'Node.js']
+  // Get missing skills using our new custom skills logic
+  const studentSkills = getStudentSkills(profile)
+  const skillNames = studentSkills ? getWeakestSkills(studentSkills) : ['React', 'Node.js']
 
   // Call Gemini
   const roadmapData = await generateRoadmap(profile?.target_role || 'Software Engineer', skillNames)
