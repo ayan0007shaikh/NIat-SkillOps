@@ -34,12 +34,12 @@ export default async function DashboardLayout({
         <div className="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           
           {/* Logo Area */}
-          <div className="flex items-center gap-3">
+          <Link href="/dashboard" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
              <img src="/niat-logo.jpg" alt="NIAT" className="h-8 md:h-10 object-contain mix-blend-multiply" />
              <div className="border-l-2 border-[#8B1D3B] pl-3 ml-1 hidden sm:block">
                <h1 className="font-bold text-gray-900 leading-none text-lg md:text-xl">SkillOps</h1>
              </div>
-          </div>
+          </Link>
           
           {/* Right Actions */}
           <div className="flex items-center gap-5 relative group">
