@@ -75,7 +75,10 @@ export async function createAIRoadmap() {
     .select()
     .single()
 
-  if (rErr) throw rErr
+  if (rErr) {
+      console.error('Insert roadmap error:', rErr)
+      return { success: false, error: rErr.message }
+  }
 
   const itemsToInsert = roadmapData.map((item: any) => ({
       roadmap_id: roadmap.id,
@@ -88,8 +91,11 @@ export async function createAIRoadmap() {
   }))
 
   const { error: iErr } = await supabase.from('roadmap_items').insert(itemsToInsert)
-  if (iErr) throw iErr
+  if (iErr) {
+      console.error('Insert items error:', iErr)
+      return { success: false, error: iErr.message }
+  }
 
   revalidatePath('/roadmap')
-  redirect('/roadmap')
+  return { success: true }
 }

@@ -36,11 +36,15 @@ export default function GenerateRoadmapButton() {
   const handleGenerate = () => {
     startTransition(async () => {
       try {
-        await createAIRoadmap()
+        const res = await createAIRoadmap()
+        if (res && !res.success) {
+            alert('Failed to save roadmap: ' + res.error)
+            return
+        }
+        window.location.href = '/roadmap'
       } catch (e) {
         console.error(e)
-        // Even if error, the server action will redirect or we force redirect
-        router.push('/roadmap')
+        window.location.href = '/roadmap'
       }
     })
   }
