@@ -8,7 +8,7 @@ const navItems = [
   { href: '/dashboard', icon: Home, label: 'Dashboard' },
   { href: '/skills', icon: BookOpen, label: 'Skills' },
   { href: '/roadmap', icon: Map, label: 'Roadmap' },
-  { href: '/assessments', icon: CheckSquare, label: 'Exams' },
+  { href: '/assessments', icon: CheckSquare, label: 'Assessments' },
   { href: '/projects', icon: Briefcase, label: 'Projects' },
 ]
 
