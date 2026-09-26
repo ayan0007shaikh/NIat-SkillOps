@@ -19,11 +19,49 @@ export async function createAIRoadmap() {
   const studentSkills = getStudentSkills(profile)
   const skillNames = studentSkills ? getWeakestSkills(studentSkills) : ['React', 'Node.js']
 
-  // Call Gemini
-  const roadmapData = await generateRoadmap(profile?.target_role || 'Software Engineer', skillNames)
-  
-  if (!roadmapData) {
-      throw new Error('Failed to generate roadmap from AI')
+  // Call Gemini or fallback
+  let roadmapData = null;
+  try {
+      roadmapData = await generateRoadmap(profile?.target_role || 'Software Engineer', skillNames)
+  } catch (e) {
+      console.warn('AI failed, using fallback manual roadmap', e);
+  }
+
+  if (!roadmapData || roadmapData.length === 0) {
+      // Manual fallback roadmap based on weak skills
+      const mainSkill = skillNames[0] || 'Core Concepts';
+      const secondarySkill = skillNames[1] || 'Advanced Tools';
+      
+      roadmapData = [
+          {
+              week_number: 1,
+              title: `Fundamentals of ${mainSkill}`,
+              description: `Master the core principles and syntax of ${mainSkill} to build a strong foundation.`,
+              skill_name: mainSkill,
+              estimated_minutes: 600
+          },
+          {
+              week_number: 2,
+              title: `Practical Application in ${mainSkill}`,
+              description: `Build hands-on projects and solve common industry problems using ${mainSkill}.`,
+              skill_name: mainSkill,
+              estimated_minutes: 720
+          },
+          {
+              week_number: 3,
+              title: `Introduction to ${secondarySkill}`,
+              description: `Expand your technical stack by learning the basics of ${secondarySkill}.`,
+              skill_name: secondarySkill,
+              estimated_minutes: 540
+          },
+          {
+              week_number: 4,
+              title: `Integration & Final Project`,
+              description: `Combine ${mainSkill} and ${secondarySkill} into a comprehensive final project suitable for your portfolio.`,
+              skill_name: `${mainSkill}, ${secondarySkill}`,
+              estimated_minutes: 800
+          }
+      ];
   }
 
   // Insert into DB
