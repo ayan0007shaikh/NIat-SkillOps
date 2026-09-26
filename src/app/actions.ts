@@ -17,7 +17,9 @@ export async function createAIRoadmap() {
   
   // Get missing skills using our new custom skills logic
   const studentSkills = getStudentSkills(profile)
-  const skillNames = studentSkills ? getWeakestSkills(studentSkills) : ['React', 'Node.js']
+  const skillNames = studentSkills && Object.keys(studentSkills).length > 0 
+      ? Object.keys(studentSkills) 
+      : ['React', 'Node.js']
 
   // Call Gemini or fallback
   let roadmapData = null;
